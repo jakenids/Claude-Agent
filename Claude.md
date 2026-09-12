@@ -2,43 +2,36 @@
 
 Guidance for Claude Code when working in this repository.
 
-## Status
-
-This repository is currently empty — there is no source code, build tooling, or
-test suite yet. Update this file as the project takes shape so the sections
-below reflect reality rather than placeholders.
-
-## Repository
-
-- Remote: https://github.com/jakenids/Claude-Agent
-- Default branch: `main`
-
 ## Project overview
 
-_TODO: describe what this project does and who it is for._
+A home for Claude Code workflows — skills that encode a repeatable process so
+it runs the same way every time, rather than being re-explained each session.
 
 ## Layout
 
-_TODO: list the top-level directories and what belongs in each._
-
-## Common commands
-
-_TODO: record the commands a contributor actually runs, e.g._
-
-```bash
-# install dependencies
-# run the test suite
-# lint / format
-# build
 ```
+.claude/skills/          workflow skills, one directory each
+  research-agent/        SKILL.md + references/
+output/                  generated reports, as paired .md and .docx
+```
+
+## Workflows
+
+- **`/research-agent <topic>`** — gated research workflow. Clarifies scope,
+  audience, depth and angle; presents a plan inline for approval; researches
+  only once approved; saves a structured report to `output/` as Markdown plus
+  a formatted .docx.
 
 ## Conventions
 
-_TODO: note anything non-obvious — naming, error handling, logging, testing
-style, or patterns that should be followed over the language default._
+- Skills live at `.claude/skills/<name>/SKILL.md` with `name` and `description`
+  frontmatter. The directory name is the slash command.
+- Keep `SKILL.md` to the process. Long templates and reference material go in
+  the skill's `references/` subdirectory.
+- Generated output is committed, not gitignored — sessions run in ephemeral
+  containers and uncommitted work is lost when they are reclaimed.
 
 ## Notes for Claude
 
 - Keep this file current; it is the first thing read when starting work here.
-- Prefer matching the surrounding code's style over introducing new patterns.
-- Run the project's own checks before pushing.
+- Commit anything worth keeping before the session ends.
